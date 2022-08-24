@@ -1,0 +1,19 @@
+.main {
+  display: flex;
+  position: static;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Inconsolata', monospace;
+}
+
+.title {
+  height: 60px;
+}
+
+.icon {
+  width: 40px;
+  position: relative;
+  left: 150px;
+  top: -65px;
+}
