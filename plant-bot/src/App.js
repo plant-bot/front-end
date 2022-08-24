@@ -15,7 +15,7 @@ function App() {
       <div>
       <model-viewer
           alt="bad"
-          src="./assets/models/cactus_new.gltf"
+          src="./assets/models/cactus.gltf"
           shadow-intensity="1"
           camera-controls
           touch-action="pan-y" />
