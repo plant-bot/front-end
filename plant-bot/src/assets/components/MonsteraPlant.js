@@ -7,7 +7,7 @@ const MonsteraPlant = () => {
   return (
     <model-viewer
       className="model-viewer"
-      src="./monsteraHealthy.glb"
+      src="./pottedMonstera.glb"
       alt="a plant"
       ar
       auto-rotate

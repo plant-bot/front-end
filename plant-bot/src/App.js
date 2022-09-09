@@ -2,7 +2,7 @@
 import React from "react"
 import PottedPlant from "./assets/img/PottedPlantSVG"
 import CurrentStats from "./assets/components/CurrentStats"
-import MonsteraPlant from "./assets/components/MonsteraPlant"
+import Taro from "./assets/components/MonsteraPlant"
 
 import "./../src/index.css"
 
@@ -19,7 +19,7 @@ function App() {
           weight={"12 lb"}
         />
         <div id="temp-block">
-          <MonsteraPlant />
+          <Taro />
         </div>
       </div>
       <div id="graph-container" className="info-container">

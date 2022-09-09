@@ -54,11 +54,11 @@ table {
 }
 
 model-viewer {
-  height: 500px;
+  height: 727px;
   width: 700px;
   position: absolute;
   overflow: overlay;
-  left: -16em;
+  left: -14em;
   top: -11em;
   z-index: 0;
 }
