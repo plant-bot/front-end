@@ -57,10 +57,13 @@ model-viewer {
   height: 727px;
   width: 700px;
   position: absolute;
-  overflow: overlay;
+  overflow: hidden;
   left: -14em;
   top: -11em;
   z-index: 0;
+  --progress-bar-color: transparent;
+  background-color: transparent;
+  transition: all 1s ease-in;
 }
 
 #temp-block {
@@ -101,4 +104,5 @@ a:hover {
   color: black;
   position: fixed;
   bottom: 15px;
+  z-index: 2;
 }
