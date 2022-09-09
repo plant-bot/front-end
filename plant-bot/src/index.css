@@ -1,3 +1,23 @@
+body {
+  background-color: #F9F9F9;
+}
+
+h1 {
+  font-weight: bolder;
+  font-size: 3.5em;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 2em;
+  margin: 5px 0 5px 0;
+}
+
+td {
+  font-weight: 400;
+  font-size: 1.6em;
+}
+
 .main {
   display: flex;
   position: static;
@@ -7,9 +27,10 @@
   font-family: 'Inconsolata', monospace;
 }
 
-.title {
-  height: 60px;
-  width: 200px;
+#temp-block {
+  height: 150px;
+  width: 150px;
+  background-color: black;
 }
 
 .icon {

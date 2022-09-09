@@ -1,24 +1,17 @@
+/* eslint-disable no-unused-vars */
 import React from "react"
-import PottedPlant from "./assets/PottedPlantSVG"
+import PottedPlant from "./assets/img/PottedPlantSVG"
+import CurrentStats from "./assets/components/CurrentStats"
 
 import "./../src/index.css"
 
 function App() {
   return (
     <div className="main">
-      <br />
-      <br />
-      <div className="title">
-        <h1>plant.bot</h1>
-        <PottedPlant />
-      </div>
+      <h1>plant.bot</h1>
       <div>
-      <model-viewer
-          alt="bad"
-          src="./assets/models/cactus.gltf"
-          shadow-intensity="1"
-          camera-controls
-          touch-action="pan-y" />
+        <CurrentStats humidity={80} />
+        <div id="temp-block" />
       </div>
     </div>
   )
