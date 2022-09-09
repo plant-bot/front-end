@@ -1,3 +1,13 @@
+/* global */
+.main {
+  display: flex;
+  position: static;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Inconsolata', monospace;
+}
+
 body {
   background-color: #F9F9F9;
 }
@@ -5,37 +15,90 @@ body {
 h1 {
   font-weight: bolder;
   font-size: 3.5em;
+  margin: 0.8em 0 0 0;
 }
 
 h2 {
   font-weight: 500;
-  font-size: 2em;
+  font-size: 1.8em;
   margin: 5px 0 5px 0;
 }
 
 td {
-  font-weight: 400;
+  font-weight: 300;
   font-size: 1.6em;
 }
 
-.main {
+.info-container {
+  border-radius: 10px;
+  padding: 0.7em 1em 0.7em 1em;
+}
+
+/* second row */
+#stats-model {
   display: flex;
-  position: static;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
-  flex-direction: column;
-  font-family: 'Inconsolata', monospace;
+  width: calc(42em + 3vw);
+  padding: 4vh 0 4vh 0;
+}
+
+table {
+  background-color: white;
+  text-align: left;
+}
+
+.stat {
+  padding-right: 2em;
+}
+
+model-viewer {
+  height: 500px;
+  width: 700px;
+  position: absolute;
+  overflow: overlay;
+  left: -16em;
+  top: -11em;
+  z-index: 0;
 }
 
 #temp-block {
   height: 150px;
-  width: 150px;
-  background-color: black;
+  width: 18em;
+  position: relative;
 }
 
+/* third row */
+#graph-container {
+  background-color: white;
+  z-index: 1;
+}
+
+#temp-graph {
+  width: 40em;
+  height: 15em;
+  background-color: rgb(194, 194, 194);
+}
+
+/* other */
 .icon {
-  width: 40px;
+  width: 21px;
   position: relative;
-  left: 150px;
-  top: -65px;
+  left: 5px;
+}
+
+a {
+  color: rgb(134, 134, 134);
+}
+
+a:hover {
+  color: black;
+}
+
+#footer {
+  text-decoration: underline;
+  color: black;
+  position: fixed;
+  bottom: 15px;
 }
