@@ -2,7 +2,7 @@ openapi: '3.0.0'
 info:
   version: '1.0.0'
   title: 'plantbot'
-  description: Buy or rent spacecrafts
+  description: Poll sensors for what your plant is feeling
 
 paths:
   /spacecrafts/{spacecraftId}:
