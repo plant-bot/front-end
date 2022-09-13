@@ -1,14 +1,12 @@
 {
   "sensorData": {
-    "date": "Mon Sep 12 2022 23:32:06 GMT-0400 (Eastern Daylight Time)",
-    "sensors": [
-      {
-        "humidity": 0.73,
-        "temp": 35,
-        "light": 0.69,
-        "weight": 12.11,
-        "moisture": 0.33
-      }
-    ]
+    "date": "Mon Sep 12 2022 23:32:06 GMT-0400 (EDT)",
+    "sensors": {
+      "humidity": 0.73,
+      "temp": 35,
+      "light": 2389,
+      "weight": 12.11,
+      "moisture": 0.33
+    }
   }
 }

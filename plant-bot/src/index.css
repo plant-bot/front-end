@@ -5,11 +5,11 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  font-family: 'Inconsolata', monospace;
+  font-family: "Inconsolata", monospace;
 }
 
 body {
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
 }
 
 h1 {
@@ -47,6 +47,14 @@ td {
 table {
   background-color: white;
   text-align: left;
+}
+
+#temp-date {
+  margin: 0;
+  font-weight: 300;
+  font-size: 90%;
+  top: -10px;
+  position: relative;
 }
 
 .stat {

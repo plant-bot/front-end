@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import PottedPlant from "./assets/img/PottedPlantSVG"
 import CurrentStats from "./assets/components/CurrentStats"
 import Monstera from "./assets/components/MonsteraPlant"
@@ -8,11 +8,26 @@ import plantSensorServce from './services/plantdata'
 import "./../src/index.css"
 
 function App() {
+  const [date, setDate] = useState("")
+  const [humidity, setHumidity] = useState()
+  const [temp, setTemp] = useState()
+  const [moisture, setMoisture] = useState()
+  const [light, setLight] = useState()
+  const [weight, setWeight] = useState()
+
   useEffect(() => {
     plantSensorServce
       .getAll()
       .then((data) => {
-        console.log(data)
+        setDate(data.date)
+        setHumidity(data.sensors.humidity)
+        setTemp(data.sensors.temp)
+        setMoisture(data.sensors.moisture)
+        setLight(data.sensors.light)
+        setWeight(data.sensors.weight)
+      })
+      .catch((err) => {
+        console.log(err)
       })
   }, [])
 
@@ -21,11 +36,12 @@ function App() {
       <h1>plant.bot</h1>
       <div id="stats-model">
         <CurrentStats
-          humidity={"73% - 80%"}
-          temp={"69 - 72 F"}
-          moisture={"avg 60%"}
-          light={"avg 1237 lux"}
-          weight={"12 lb"}
+          date={date}
+          humidity={humidity}
+          temp={temp}
+          moisture={moisture}
+          light={light}
+          weight={weight}
         />
         <div id="temp-block">
           <Monstera />
