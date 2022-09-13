@@ -5,25 +5,18 @@ info:
   description: Poll sensors for what your plant is feeling
 
 paths:
-  /spacecrafts/{spacecraftId}:
-    parameters:
-      - name: spacecraftId
-        description: The unique identifier of the spacecraft
-        in: path
-        required: true
-        schema:
-          $ref: '#/components/schemas/SpacecraftId'
+  /api/sensors:
     get:
-      summary: Read a spacecraft
+      summary: Packaged sensor data; contains humidity, temp, light, weight, and moisture levels
       responses:
         '200':
-          description: The spacecraft corresponding to the provided `spacecraftId`
+          description: Successfully sent sensor data
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Spacecraft'
+                $ref: '#/components/schemas/SensorData'
         404:
-          description: No spacecraft found for the provided `spacecraftId`
+          description: No sensors reached
           content:
             application/json:
               schema:
@@ -36,30 +29,31 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    SpacecraftId:
-      description: The unique identifier of a spacecraft
+    SensorId:
+      description: The unique identifier for a sensor
       type: string
-    Spacecraft:
+    SensorData:
       type: object
       required:
         - id
         - name
         - type
+        - value
       properties:
         id:
-          $ref: '#/components/schemas/SpacecraftId'
+          $ref: '#/components/schemas/SensorId'
         name:
           type: string
         type:
           type: string
           enum:
-            - capsule
-            - probe
-            - satellite
-            - spaceplane
-            - station
-        description:
-          type: string
+            - humidity
+            - temp
+            - light
+            - weight
+            - moisture
+        value:
+          type: number
     Error:
       type: object
       required:
