@@ -1,12 +1,21 @@
 /* eslint-disable no-unused-vars */
-import React from "react"
+import React, { useEffect } from "react"
 import PottedPlant from "./assets/img/PottedPlantSVG"
 import CurrentStats from "./assets/components/CurrentStats"
 import Monstera from "./assets/components/MonsteraPlant"
+import plantSensorServce from './services/plantdata'
 
 import "./../src/index.css"
 
 function App() {
+  useEffect(() => {
+    plantSensorServce
+      .getAll()
+      .then((data) => {
+        console.log(data)
+      })
+  }, [])
+
   return (
     <div className="main">
       <h1>plant.bot</h1>
