@@ -7,7 +7,7 @@ info:
 paths:
   /api/sensors:
     get:
-      summary: Packaged sensor data; contains humidity, temp, light, weight, and moisture levels
+      summary: Sensor Data object
       responses:
         '200':
           description: Successfully sent sensor data
@@ -29,19 +29,19 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    SensorId:
-      description: The unique identifier for a sensor
+    Date:
+      description: Time of sensors polled
       type: string
     SensorData:
       type: object
       required:
-        - id
+        - date
         - name
         - type
         - value
       properties:
-        id:
-          $ref: '#/components/schemas/SensorId'
+        date:
+          $ref: '#/components/schemas/Date'
         name:
           type: string
         type:
