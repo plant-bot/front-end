@@ -1,8 +1,4 @@
 ## plant.bot Front End ## 
-
-Listing here any relevant development notes, features to add and known bugs
------
-
 ### Features
 #### Graph
 A core feature of the application is the data-visualization over time. View system design on the FigJam board, but front-end will be fetching data from an RDS server with at least 3 months (hopefully 6) worth of data, then displaying that in the graph below the 3D model.
