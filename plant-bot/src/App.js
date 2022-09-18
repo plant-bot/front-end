@@ -9,11 +9,11 @@ import "./../src/index.css"
 
 function App() {
   const [date, setDate] = useState("")
-  const [humidity, setHumidity] = useState()
-  const [temp, setTemp] = useState()
-  const [moisture, setMoisture] = useState()
-  const [light, setLight] = useState()
-  const [weight, setWeight] = useState()
+  const [humidity, setHumidity] = useState(0.0)
+  const [temp, setTemp] = useState(0.0)
+  const [moisture, setMoisture] = useState(0.0)
+  const [light, setLight] = useState(0.0)
+  const [weight, setWeight] = useState(0.0)
 
   useEffect(() => {
     plantSensorServce
@@ -28,6 +28,7 @@ function App() {
       })
       .catch((err) => {
         console.log(err)
+        setDate(err.message)
       })
   }, [])
 
