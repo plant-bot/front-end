@@ -9,7 +9,7 @@ const CurrentStats = ({ date, humidity, temp, moisture, light, weight }) => {
         <thead>
           <tr>
             <th colSpan={2}>
-              <h2>Current Stats</h2> <br /> <p id="temp-date">{date}</p>
+              <h2>Current Environment</h2> <br /> <p id="temp-date">{date}</p>
             </th>
           </tr>
         </thead>

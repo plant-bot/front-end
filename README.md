@@ -9,7 +9,13 @@ A core feature of the application is the data-visualization over time. View syst
 - [ ] Setup "All Time" vs "Prev 4 hours" graphs
 - [ ] Error handling
 
+#### Console
+If I can get the console from the Arduino it could be used to display both the current date the Arduino is reading and/or the request status. 
+- [ ] Assess microcontroller console
+
 ### Known bugs
+#### Misc
+- [ ] Proxy error: Could not proxy request to `/favicon.ico`
 #### 3D Model
 Likely fixes in `<model-viewer>` component, exists in `<MonsteraPlant>`
 - [ ] Can be scrolled to increase / decrease size

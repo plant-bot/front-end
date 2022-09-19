@@ -49,7 +49,7 @@ function App() {
         </div>
       </div>
       <div id="graph-container" className="info-container">
-        <h2>Last 4 hours</h2>
+        <h2>Data</h2>
         <div id="temp-graph" />
       </div>
       <div id="footer">
