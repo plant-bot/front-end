@@ -47,7 +47,7 @@ function App() {
       </div>
       <div id="footer">
         <a href="https://github.com/plant-bot">view source code</a>
-        <PottedPlant className="icon" />
+        <PottedPlant />
       </div>
     </div>
   )
