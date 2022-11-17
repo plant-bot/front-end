@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
 import PottedPlant from "./assets/img/PottedPlantSVG"
-import CurrentStats from "./assets/components/CurrentStats"
-import Monstera from "./assets/components/MonsteraPlant"
-import plantSensorServce from "./services/plantdata"
+import CurrentStats from "./components/CurrentStats"
+import Monstera from "./components/MonsteraPlant"
+import plantSensorServce from "./services/plantSensorService"
 
 import "./../src/index.css"
 
@@ -15,20 +15,10 @@ function App() {
   const [weight, setWeight] = useState(0.0)
 
   useEffect(() => {
-    plantSensorServce
-      .getAll()
-      .then((data) => {
-        setDate(data.date)
-        setHumidity(data.sensors.humidity)
-        setTemp(data.sensors.temp)
-        setMoisture(data.sensors.moisture)
-        setLight(data.sensors.light)
-        setWeight(data.sensors.weight)
-      })
-      .catch((err) => {
-        console.log(err)
-        setDate(err.message)
-      })
+   async function fetchData() { 
+    return await plantSensorServce.getAll()
+   }
+   const data = fetchData()
   }, [])
 
   return (

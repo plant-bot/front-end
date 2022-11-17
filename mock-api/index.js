@@ -20,8 +20,16 @@ const controls = {
     max: 1614,
     format: "lux",
   },
-  moistureRange: {},
-  weightRange: {},
+  moistureRange: {
+    min: 10,
+    max: 80,
+    format:"% moisture"
+  },
+  weightRange: {
+    min: 3,
+    max: 12,
+    format: "lbs"
+  },
 }
 
 const getRandomRange = (min, max) => {
