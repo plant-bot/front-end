@@ -4,19 +4,21 @@ import { SensorsData } from "../types"
 const BASE_URL = "/sensors"
 
 const isSensorData = (param: any): param is SensorsData => {
-  return "date" in param && param.date instanceof String 
-    && "humidity" in param && param.humidity instanceof Number
-    && "light" in param && param.light instanceof Number
-    && "moisture" in param && param.moisture instanceof Number
-    && "temp" in param && param.temp instanceof Number 
-    && "weight" in param && param.weight instanceof Number
+  return (
+    "date" in param &&
+    "humidity" in param &&
+    "light" in param &&
+    "moisture" in param &&
+    "temp" in param &&
+    "weight" in param
+  )
 }
 
 const getAll = async (): Promise<SensorsData[]> => {
   try {
     const res = await axios.get(BASE_URL)
 
-    await res.data.forEach(elem => {
+    await res.data.forEach((elem) => {
       if (isSensorData(elem)) {
         return elem
       } else {
