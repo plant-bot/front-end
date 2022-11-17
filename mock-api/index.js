@@ -1,6 +1,10 @@
 const controls = {
   numMonthsToGenerate: 2,
-  date: new Date('August 19, 1975 23:15:30'),
+  startDate: {
+    year: 2021,
+    month: 10,
+    day: 1,
+  },
   tempRange: {
     min: 45,
     max: 62,
@@ -20,22 +24,30 @@ const controls = {
   weightRange: {},
 }
 
+const getRandomRange = (min, max) => {
+  return Math.random() * (max - min) + min
+}
+
 const generateData = () => {
   const data = { sensors: [] }
+  const { startDate, numMonthsToGenerate, tempRange, humidRange, lightRange, moistureRange, weightRange } = controls
 
-  for (let i = 0; i < 30 * controls.numMonthsToGenerate; i++) {
-    controls.date.setDate(i)
+  const updateDate = (i) => {
+    const { year, month, day } = startDate
+    const temp = new Date(year, month, day)
+    temp.setDate(i)
+    return temp
+  }
 
+  for (let i = 0; i < 30 * numMonthsToGenerate; i++) {
     let tempObject = {
-      temp: i,
-      light: 0,
-      humidity: 0,
-      moisture: 0,
-      weight: 0,
-      date: controls.date,
+      temp: getRandomRange(tempRange.min, tempRange.max),
+      light: getRandomRange(lightRange.min, lightRange.max),
+      humidity: getRandomRange(humidRange.min, humidRange.max),
+      moisture: getRandomRange(moistureRange.min, moistureRange.max),
+      weight: getRandomRange(weightRange.min, weightRange.max),
+      date: updateDate(i),
     }
-
-    console.log(tempObject)
     data.sensors.push(tempObject)
   }
   return data
