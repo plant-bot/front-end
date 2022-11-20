@@ -14,26 +14,19 @@ const isSensorData = (param: any): param is SensorsData => {
   )
 }
 
-const getAll = (): SensorsData[] => {
-  const fetchFromPlant = async (): Promise<unknown[]> => {
+const getAll = async (): Promise<SensorsData[]> => {
+  const fetchFromPlant = async (): Promise<SensorsData[]> => {
     const res = await axios.get(BASE_URL)
+    res.data.forEach((elem) => {
+      if (!isSensorData(elem)) {
+        return Promise.reject(`malformmated sensor data: ${elem}`)
+      }
+    })
     return res.data
   }
 
   try {
-    const resData = fetchFromPlant().then((val): SensorsData[] => {
-      val.forEach((elem) => {
-        if (isSensorData(elem)) {
-          return elem
-        } else {
-          throw new Error(`broken sensor data object: ${JSON.stringify(elem)}`)
-        }
-      })
-      return val as SensorsData[]
-    })
-    console.log(resData);
-
-    return resData as unknown as SensorsData[]
+    return fetchFromPlant()
   } catch (error: unknown) {
     if (error instanceof Error) {
       throw new Error(error.message)

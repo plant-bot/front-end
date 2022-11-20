@@ -3,7 +3,6 @@ import PottedPlant from "./assets/img/PottedPlantSVG"
 import CurrentStats from "./components/CurrentStats"
 import Monstera from "./components/MonsteraPlant"
 import plantSensorServce from "./services/plantSensorService"
-import { SensorsData } from "./types"
 
 import "./../src/index.css"
 
@@ -16,8 +15,19 @@ function App() {
   const [weight, setWeight] = useState(0.0)
 
   useEffect(() => {
-    async function fetchData(): Promise<SensorsData[]> {
-      return await plantSensorServce.getAll()
+    async function fetchData(): Promise<void> {
+      const data = await plantSensorServce.getAll()
+      const recent = data.at(-1)
+
+      if (recent) {
+        setDate(recent.date)
+        setHumidity(recent.humidity)
+        setTemp(recent.temp)
+        setMoisture(recent.moisture)
+        setLight(recent.light)
+        setWeight(recent.weight)
+      }
+      
     }
     fetchData()
   }, [])
