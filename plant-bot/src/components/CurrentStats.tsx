@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react"
+import { SensorsData } from "../types"
 
-const CurrentStats = ({ date, humidity, temp, moisture, light, weight }) => {
+const CurrentStats = ({ date, humidity, temp, moisture, light, weight }: SensorsData) => {
   return (
     <>
       <table className="info-container">
@@ -17,28 +18,28 @@ const CurrentStats = ({ date, humidity, temp, moisture, light, weight }) => {
           <tr>
             <td className="stat">Humidity</td>
             <td>
-              {humidity * 100}
+              {Math.round(humidity)}
               {"%"}
             </td>
           </tr>
           <tr>
             <td className="stat">Temp</td>
-            <td>{temp}&deg;C</td>
+            <td>{Math.round(temp)}&deg;C</td>
           </tr>
           <tr>
             <td className="stat">Moisture</td>
             <td>
-              {moisture * 100}
+              {Math.round(moisture)}
               {"%"}
             </td>
           </tr>
           <tr>
             <td className="stat">Light</td>
-            <td>{light} lux</td>
+            <td>{Math.round(light)} lux</td>
           </tr>
           <tr>
             <td className="stat">Weight</td>
-            <td>{weight} lb</td>
+            <td>{Math.round(weight)} lb</td>
           </tr>
         </tbody>
       </table>
